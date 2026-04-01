@@ -1,4 +1,4 @@
-# HireVion v2 — AI Resume Intelligence Platform
+# HireVion — AI Resume Intelligence Platform
 > Final Year Engineering Project | Flask + spaCy + Sentence-BERT + XAI + Bias Detection
 
 **Theme:** Dark/Light Mode · Glassmorphism · Cyberpunk Cyan  
@@ -7,7 +7,7 @@
 
 ---
 
-## ✨ What's New in v2
+## ✨ Features in hirevion
 
 | Feature | Details |
 |---|---|
@@ -42,35 +42,7 @@ hirevion/
     └── research.html       ← NEW: ablation study, threshold sweep, stats
 ```
 
----
 
-## 🚀 Run Locally
-
-```bash
-# 1. Create virtual environment
-python -m venv venv
-source venv/bin/activate   # Windows: venv\Scripts\activate
-
-# 2. Install dependencies
-pip install -r requirements.txt
-python -m spacy download en_core_web_sm
-
-# 3. Run
-python app.py
-```
-Open → **http://localhost:5000** · Login → **admin / 1234**
-
----
-
-## ☁️ Deploy on Render
-
-1. Push to GitHub
-2. Render → New Web Service → Connect repo
-3. Build: `pip install -r requirements.txt && python -m spacy download en_core_web_sm`
-4. Start: `gunicorn app:app --workers 1 --timeout 300`
-5. Env var: `SECRET_KEY` → any random string
-
----
 
 ## 🧠 AI Pipeline
 
@@ -104,4 +76,4 @@ Open → **http://localhost:5000** · Login → **admin / 1234**
 
 ---
 
-*HireVion v2 · Final Year Engineering Project 2025*
+*HireVion*
