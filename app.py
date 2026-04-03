@@ -1,8 +1,3 @@
-"""
-HireVion — AI-Powered Resume Intelligence Platform  v2
-Flask Backend | Fixed: upload freeze, model cold-start, error handling
-"""
-
 import os, json, uuid, hashlib, tempfile, threading
 from pathlib import Path
 from functools import wraps
@@ -15,10 +10,7 @@ from PyPDF2 import PdfReader
 from docx import Document
 import pandas as pd
 
-# ── Lazy import guard: resume_parser loads SBERT on import, which can
-#    take 10-30 s on a cold start.  We import it once at module level
-#    (happens before the first request is served), so the server start
-#    takes the hit — NOT the upload request. ─────────────────────────
+
 from resume_parser import (
     process_batch, compute_evaluation_metrics,
     compute_pool_bias_report, SBERT_AVAILABLE
