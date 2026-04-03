@@ -1,12 +1,3 @@
-"""
-resume_parser.py  —  HireVion NLP Engine
-Enhancements v2:
-  • Score capped at 100
-  • Resume anonymization mode
-  • Multi-language detection (langdetect)
-  • Bias pool-level stats helper
-"""
-
 import re
 import time
 import os
