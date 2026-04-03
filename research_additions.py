@@ -1,17 +1,3 @@
-"""
-research_additions.py  —  HireVion paper additions
-==================================================
-Three functions to add to resume_parser.py (or import alongside it).
-No changes to your existing code needed.
-
-Usage in app.py:
-    from research_additions import (
-        evaluate_against_ground_truth,
-        run_ablation_study,
-        compute_pipeline_stats,
-    )
-"""
-
 import time
 import statistics
 from resume_parser import (
@@ -26,21 +12,7 @@ from resume_parser import (
 )
 
 
-# ─────────────────────────────────────────────────────────────────
-#  ADDITION 1 — Ground-truth evaluation
-#  Fixes the circular evaluation in compute_evaluation_metrics().
-#  Compares your system's predictions against HUMAN recruiter labels.
-#
-#  How to use:
-#    1. Collect 50–100 resumes and ask a recruiter to label each
-#       as "shortlist" (True) or "reject" (False).
-#    2. Run process_batch() on those same resumes to get candidates.
-#    3. Call evaluate_against_ground_truth(candidates, human_labels).
-#
-#  Example:
-#    human_labels = [True, False, True, True, False, ...]  # recruiter decisions
-#    results = evaluate_against_ground_truth(candidates, human_labels, threshold=60)
-# ─────────────────────────────────────────────────────────────────
+
 
 def evaluate_against_ground_truth(candidates, human_labels, threshold=60):
     """
@@ -125,22 +97,7 @@ def evaluate_against_ground_truth(candidates, human_labels, threshold=60):
     }
 
 
-# ─────────────────────────────────────────────────────────────────
-#  ADDITION 2 — Ablation study
-#  Shows the contribution of each component to overall performance.
-#  This is standard in NLP papers and reviewers will expect it.
-#
-#  How to use:
-#    results = run_ablation_study(texts, labels, human_labels,
-#                                 required_skills, job_description)
-#
-#  It runs 5 variants of your pipeline and reports metrics for each:
-#    - Full system (your baseline)
-#    - Without SBERT (TF-IDF only)
-#    - Without bias detection
-#    - Without skill gap analysis
-#    - Without improvement suggestions (scores only)
-# ─────────────────────────────────────────────────────────────────
+
 
 def run_ablation_study(texts, labels, human_labels,
                        required_skills=None, job_description="", threshold=60):
@@ -243,16 +200,6 @@ def run_ablation_study(texts, labels, human_labels,
 
     return ablation_results
 
-
-# ─────────────────────────────────────────────────────────────────
-#  ADDITION 3 — Pipeline performance stats
-#  Aggregates the processing_time already stored per candidate into
-#  the summary statistics your paper's results section needs.
-#
-#  How to use:
-#    stats = compute_pipeline_stats(candidates)
-#    # then log or display stats["avg_time_ms"], stats["throughput"], etc.
-# ─────────────────────────────────────────────────────────────────
 
 def compute_pipeline_stats(candidates):
     """
